@@ -37,6 +37,10 @@ and we assume that the two lists are of roughly equal length for a given run.
 
 Using a binary search tree allows a search to be completed in O(log(n)), and
 we are running n searches. Total time complexity is O(n log(n)).
+
+The O(n) time to create the bineary search tree is dropped from Big O time because
+the O(n log(n)) of the searches will increase faster and take a greater percentage
+of the time costs as n increases.
 '''
 
 # ---------- Stretch Goal -----------
@@ -59,3 +63,15 @@ duplicates_set = set(names_1).intersection(set(names_2))
 end_time = time.time()
 print (f"{len(duplicates_set)} duplicates_set:\n\n{', '.join(duplicates_set)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
+
+# Second stretch goal: Say your code from names.py is to run on an embedded
+# computer with very limited RAM. Because of this, memory is extremely
+# constrained and you are only allowed to store names in arrays
+# (i.e. Python lists). How would you go about optimizing the code under these
+# conditions?
+
+'''
+Sort one array in-place in (hopefully) O(n log(n)) time.
+For each name in the other array, use a binary search method to look for it in
+the first array.
+'''
